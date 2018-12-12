@@ -1,0 +1,17 @@
+.container{
+min-height: 75rem;
+padding-top: 4.5rem;
+}
+
+body{
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    text-align: center;
+}
+
+.done{
+    padding: 20;
+
+}
+
+
