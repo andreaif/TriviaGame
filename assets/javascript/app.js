@@ -1,25 +1,48 @@
-var panel = $("#trivia");
+//timer
+function startTimer(duration, display) {
+  var timer = duration, minutes, seconds;
+  setInterval(function () {
+      minutes = parseInt(timer / 60, 10)
+      seconds = parseInt(timer % 60, 10);
 
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.textContent = minutes + ":" + seconds;
+
+      if (--timer < 0) {
+          timer = duration;
+      }
+  }, 1000);
+}
+
+window.onload = function () {
+  var fiveMinutes = 60 * 5,
+      display = document.querySelector('#timer');
+  startTimer(fiveMinutes, display);
+};
+
+var panel = $("#trivia");
 // Question set
 var questions = [{
   question: "In what place was Christmas once illegal?",
-  answers: ["England","France", "Brazil", "Russia"],
+  answers: ["       England        ","       France      ", "      Brazil      ", "        Russia       "],
   correctAnswer: "England"
 }, {
   question: "In California, it is illegal to eat oranges while doing what?",
-  answers: ["Gardening", "Working on a computer", "Driving", "Bathing"],
+  answers: ["      Gardening      ", "       Working on a computer      ", "       Driving         ", "        Bathing       "],
   correctAnswer: "Bathing"
 }, {
   question: "Coulrophonia means fear of what?",
-  answers: ["Clowns","Old people", "Sacred Things", "Jews"],
+  answers: ["        Clowns       ","     Old people     ", "        Sacred Things        ", "      Jews       "],
   correctAnswer: "Clowns"
 }, {
   question: "At what temperature are Fahrenheit and Celsius the same?",
-  answers: ["-40", "50", "0", "92"],
+  answers: ["      -40       ", "     50     ", "       0     ", "    92     "],
   correctAnswer: "50"
 }, {
   question: "Which of the following is the longest running American animated TV show?",
-  answers: ["Simpsons", "Pokemon", "Rugrats", "TV Funhouse"],
+  answers: ["     Simpsons     ", "     Pokemon     ", "       Rugrats      ", "        TV Funhouse      "],
   correctAnswer: "Pokemon"
 }];
 
@@ -30,21 +53,11 @@ var trivia = {
 
   correct: 0,
   incorrect: 0,
-  counter: 28,
-
-  countdown: function() {
-    trivia.counter--;
-    $("#counter-number").html(trivia.counter);
-    if (trivia.counter === 0) {
-      console.log("TIME UP!");
-      trivia.done();
-    }
-  },
 
 
   //start button 
   start: function() {
-
+    
     $("#start").remove();
 
     for (var i = 0; i < questions.length; i++) {
@@ -58,6 +71,7 @@ var trivia = {
     panel.append("<div style='text-align: center'><button id='done'> Done</button>");
   },
 
+  
   //done submit button
 
   done: function() {

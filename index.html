@@ -16,13 +16,26 @@
         <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
 
         <div class="container" style="background-color: lightcoral">
-                    <h1>Totally Trivial Trivia!</h1>
+            
+            <div class="container" id="title" style="text-align:left">
+                <div class="row">
+                    <div class="col-sm-7">
+                <h1>Totally Trivial Trivia!</h1>
+                    </div>
+                    <div class="col-sm-5" id="timer">
+                        <p> 05:00 </p>
+                    </div>
+            </div>
+            
+            <div class="container" id="formquestions" style="text-align:left">
                     <div id="questions">
                             <div id="trivia">
-                              <button id="start">Start</button>
-                      </div>
+                              <button id="start" onclick="startTimer()">Start</button>
+                            </div>
                     </div>
-                  </div>
+            </div>
+
+        </div>
     </body>
       <!--java link-->
       <script type="text/javascript" src="assets/javascript/app.js"></script>

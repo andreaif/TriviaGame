@@ -1,0 +1,14 @@
+<html>
+</body>
+<div id="secondTenthsExample">
+        <div class="values"></div>
+</div>
+<script>
+var timer = new Timer();
+timer.start({precision: 'secondTenths'});
+timer.addEventListener('secondTenthsUpdated', function (e) {
+    $('#secondTenthsExample .values').html(timer.getTimeValues().toString(['hours', 'minutes', 'seconds', 'secondTenths']));
+});    
+</script>
+</body>
+</html>
